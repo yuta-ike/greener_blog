@@ -32,6 +32,8 @@
   "dependencies": {
     "@aspida/axios": "^0.12.1",
     "@aspida/swr": "^0.2.1",
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
     "axios": "^0.20.0",
     "class-validator": "^0.12.2",
     "emotion": "^10.0.27",

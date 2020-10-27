@@ -1,4 +1,10 @@
+import styled from '@emotion/styled'
 import React from 'react'
+
+const StyledButton = styled.button`
+  padding: 14px;
+  background: red;
+`
 
 type Props = {
   text: string
@@ -7,11 +13,7 @@ type Props = {
 
 // eslint-disable-next-line react/prop-types
 const Button: React.FC<Props> = ({ text, onClick }) => {
-  return (
-    <button style={{ padding: '10px' }} onClick={onClick}>
-      {text}
-    </button>
-  )
+  return <StyledButton onClick={onClick}>{text}</StyledButton>
 }
 
 export default Button

@@ -6,6 +6,7 @@ import { apiClient } from '~/utils/apiClient'
 import { Task } from '$prisma/client'
 import UserBanner from '~/view/components/UserBanner'
 import Button from '~/view/components/Button/Button'
+import CodeBox from '~/view/components/CodeBox/CodeBox'
 
 const Home = () => {
   const { data: tasks, error, mutate: setTasks } = useAspidaSWR(apiClient.tasks)
@@ -57,6 +58,7 @@ const Home = () => {
         <p className={styles.description}>frourio-todo-app</p>
 
         <div>
+          <CodeBox />
           <form style={{ textAlign: 'center' }} onSubmit={createTask}>
             <input value={label} type="text" onChange={inputLavel} />
             <input type="submit" value="ADD" />
