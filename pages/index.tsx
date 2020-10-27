@@ -1,10 +1,11 @@
 import Head from 'next/head'
-import { useCallback, useState, FormEvent, ChangeEvent } from 'react'
+import React, { useCallback, useState, FormEvent, ChangeEvent } from 'react'
 import useAspidaSWR from '@aspida/swr'
 import styles from '~/styles/Home.module.css'
 import { apiClient } from '~/utils/apiClient'
 import { Task } from '$prisma/client'
 import UserBanner from '~/view/components/UserBanner'
+import Button from '~/view/components/Button/Button'
 
 const Home = () => {
   const { data: tasks, error, mutate: setTasks } = useAspidaSWR(apiClient.tasks)
@@ -80,6 +81,7 @@ const Home = () => {
               </li>
             ))}
           </ul>
+          <Button text="Click Me!!" onClick={console.log} />
         </div>
       </main>
 

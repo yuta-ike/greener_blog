@@ -25,13 +25,16 @@
     "migrate:save": "cd server && cross-env DUMMY_ENV=forWin node_modules/.bin/prisma migrate save --create-db --experimental",
     "migrate:up": "cd server && cross-env DUMMY_ENV=forWin node_modules/.bin/prisma migrate up --create-db --experimental",
     "migrate:down": "cd server && cross-env DUMMY_ENV=forWin node_modules/.bin/prisma migrate down --experimental",
-    "test": "npm run build:types && jest"
+    "test": "npm run build:types && jest",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@aspida/axios": "^0.12.1",
     "@aspida/swr": "^0.2.1",
     "axios": "^0.20.0",
     "class-validator": "^0.12.2",
+    "emotion": "^10.0.27",
     "next": "9.5.5",
     "react": "16.14.0",
     "react-dom": "16.14.0",
@@ -39,6 +42,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@storybook/addon-actions": "^6.0.27",
+    "@storybook/addon-essentials": "^6.0.27",
+    "@storybook/addon-links": "^6.0.27",
+    "@storybook/react": "^6.0.27",
     "@types/jest": "^26.0.14",
     "@types/node": "^14.11.2",
     "@types/react": "^16.9.49",
