@@ -9,7 +9,7 @@ export default {
 
 export const code = ({ children }) => (
   <ThemeProvider theme={themeBuilder('light')}>
-    <Code clsasName="language-tsx">{children}</Code>
+    <Code className="language-tsx">{children}</Code>
   </ThemeProvider>
 )
 

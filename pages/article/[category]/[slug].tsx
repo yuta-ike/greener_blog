@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { DateTime } from 'luxon'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Article from '~/model/article/article'
 import ArticleTemplate from '~/view/templates/articleTemplate'
 // import mdx from '@mdx-js/mdx'
@@ -162,12 +163,23 @@ aaa
 )
 
 type Props = {
-  mdx: JSX.Element
+  article: string
 }
 
-const ArticlePage: React.FC<Props> = () => {
-  // console.log(mdx(article.body))
-  return <ArticleTemplate article={article} />
+const ArticlePage: React.FC<Props> = ({ article }) => {
+  return <ArticleTemplate article={Article.fromJson(article)} />
 }
 
 export default ArticlePage
+
+// 最初に実行される。事前ビルドするパスを配列でreturnする。
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = ['/article/blog/1', '/article/blog/2', '/article/test/1']
+  return { paths, fallback: false }
+}
+
+// ルーティングの情報が入ったparamsを受け取る
+export const getStaticProps: GetStaticProps = async () => {
+  const json = article.toJson()
+  return { props: { article: json } }
+}

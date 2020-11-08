@@ -12,6 +12,25 @@ class Article {
     readonly folder: string,
     readonly tags: string[]
   ) {}
+
+  public toJson() {
+    return JSON.stringify(this)
+  }
+
+  static fromJson(json: string) {
+    const obj = JSON.parse(json)
+    return new Article(
+      obj.id,
+      obj.slag,
+      obj.hs,
+      obj.title,
+      obj.body,
+      DateTime.fromISO(obj.createdAt),
+      DateTime.fromISO(obj.updatedAt),
+      obj.folder,
+      obj.tags
+    )
+  }
 }
 
 export default Article
