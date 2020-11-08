@@ -4,9 +4,9 @@ import useAspidaSWR from '@aspida/swr'
 import styles from '~/styles/Home.module.css'
 import { apiClient } from '~/utils/apiClient'
 import { Task } from '$prisma/client'
-import UserBanner from '~/view/components/UserBanner'
-import Button from '~/view/components/Button/Button'
-import CodeBox from '~/view/components/CodeBox/CodeBox'
+// import UserBanner from '~/view/components/UserBanner'
+// import Button from '~/view/components/atoms/Button/Button'
+import CodeBox from '~/view/components/organizms/CodeBox/CodeBox'
 
 const Home = () => {
   const { data: tasks, error, mutate: setTasks } = useAspidaSWR(apiClient.tasks)
@@ -46,10 +46,14 @@ const Home = () => {
       <Head>
         <title>frourio-todo-app</title>
         <link rel="icon" href="/favicon.png" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
 
       <main className={styles.main}>
-        <UserBanner />
+        {/* <UserBanner /> */}
 
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
@@ -83,7 +87,7 @@ const Home = () => {
               </li>
             ))}
           </ul>
-          <Button text="Click Me!!" onClick={console.log} />
+          {/* <Button text="Click Me!!" onClick={console.log} /> */}
         </div>
       </main>
 
